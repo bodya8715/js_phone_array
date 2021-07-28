@@ -45,7 +45,7 @@ function getCompany() {
 }
 
 for (let i = 1; i <= 50; i++) {
-    phones[i-1] = new Phone(`iphone ${i}`, getCompany(), i*1500, getColor(), [{name:"string"}], Math.random() >= 0.5);
+    phones[i-1] = new Phone(`model ${i}`, getCompany(), i*1500, getColor(), [{name:"string"}], Math.random() >= 0.5);
 }
 
 function isAvailableNumber(array) {
