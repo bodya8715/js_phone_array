@@ -51,7 +51,7 @@ for (let i = 1; i <= 50; i++) {
 function isAvailableNumber(array) {
     let value = 0;
     array.forEach( function(item) {
-        if (item.isAvailable === true) {
+        if (item.isAvailable) {
             value++;
         }
     });
@@ -59,14 +59,17 @@ function isAvailableNumber(array) {
 }
 
 function isAvailable(array) {
-    return array.filter( (item) => item.isAvailable === true);
+    return array.filter( (item) => item.isAvailable);
 }
 
 function sales(array) {
     return array
-    .filter( (item) => (item.isAvailable === true) && (item.price >= 30000) )
+    .filter( (item) => item.isAvailable)
     .map( function(item) {
-        item.price = Math.round(item.price*0.7);
+        if(item.price >= 30000) {
+            item.price = Math.round(item.price*0.7);
+        }
+        
         return item;
     });
 }
@@ -77,15 +80,4 @@ function showAllPhones(array) {
 
 function priceSort(array) {
     return array.sort( (a,b)=>b.price-a.price );
-}
-
-function stringArray(array) {
-    let array1 = [ ];
-    let array2 = [ ];
-    array.forEach( function(item) {
-        array1.push( item.company );
-        array2.push( item.color );
-    });
-
-    return [ array1, array2 ];
 }
