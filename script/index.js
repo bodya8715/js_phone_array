@@ -76,7 +76,7 @@ function showAllPhones(array) {
 }
 
 function priceSort(array) {
-    return array.sort( (a,b)=>a-b );
+    return array.sort( (a,b)=>b.price-a.price );
 }
 
 function stringArray(array) {
